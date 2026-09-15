@@ -1,1 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Cherry Sumagpao | Virtual Assistant | Video Editor | Social Media Manager</title>
+
+  <meta name="description" content="Cherry Sumagpao - Virtual Assistant, Video Editor and Social Media Manager.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #faf7f5;
+      color: #2d2522;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 247, 245, 0.96);
+      border-bottom: 1px solid #eadfd9;
+      padding: 18px 7%;
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #9b6b5d;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 7%;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #766b66;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #faf7f5, #f0e5df);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-small {
+      color: #9b6b5d;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #9b6b5d;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #665c58;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #9b6b5d;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #765046;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid #9b6b5d;
+      color: #9b6b5d;
+    }
+
+    .btn-outline:hover {
+      background: #9b6b5d;
+      color: white;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #665c58;
+      margin-bottom: 15px;
+    }
+
+    .about-box {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(70, 45, 35, 0.08);
+    }
+
+    .about-box h3 {
+      margin-bottom: 20px;
+    }
+
+    .about-box ul {
+      list-style: none;
+    }
+
+    .about-box li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee4df;
+    }
+
+    /* SERVICES */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 28px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(70, 45, 35, 0.07);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #716762;
+    }
+
+    .card ul {
+      margin-top: 15px;
+      padding-left: 18px;
+      color: #716762;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(70, 45, 35, 0.07);
+    }
+
+    .project-image {
+      height: 230px;
+      background: linear-gradient(135deg, #d9c1b7, #9b6b5d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 55px;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .project-content p {
+      color: #716762;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      background: #f1e6e1;
+      color: #795247;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skill {
+      background: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 5px 15px rgba(70, 45, 35, 0.06);
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #2d2522;
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-title p {
+      color: #d5c8c2;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: #ddd1cc;
+      margin-bottom: 25px;
+      font-size: 17px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info a {
+      padding: 12px 20px;
+      border: 1px solid #88756d;
+      border-radius: 25px;
+    }
+
+    .contact-info a:hover {
+      background: #9b6b5d;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #211b19;
+      color: #a99c96;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+
+      <div class="logo">
+        CHERRY.
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="hero-small">
+          Virtual Assistant • Video Editor • Social Media Manager
+        </div>
+
+        <h1>
+          Hi, I'm <span>Cherry.</span>
+        </h1>
+
+        <p>
+          I help businesses create engaging content, stay organized,
+          and build a consistent online presence through video editing,
+          social media management, and virtual assistance.
+        </p>
+
+        <div class="buttons">
+          <a href="#portfolio" class="btn btn-primary">
+            View My Work
+          </a>
+
+          <a href="#contact" class="btn btn-outline">
+            Let's Work Together
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Detail-oriented, creative, organized, and ready to learn.</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <h3>Helping businesses stay organized and visible online.</h3>
+
+          <p>
+            I'm Cherry, a motivated and detail-oriented Virtual Assistant
+            specializing in Video Editing and Social Media Management.
+          </p>
+
+          <p>
+            I enjoy creating engaging short-form videos, designing
+            social media content, organizing content calendars, and
+            supporting businesses with their daily digital tasks.
+          </p>
+
+          <p>
+            I am dependable, organized, willing to learn new tools,
+            and committed to producing quality work on time.
+          </p>
+
+        </div>
+
+        <div class="about-box">
+
+          <h3>What I Bring</h3>
+
+          <ul>
+            <li>✓ Attention to detail</li>
+            <li>✓ Reliable and organized</li>
+            <li>✓ Creative mindset</li>
+            <li>✓ Willingness to learn</li>
+            <li>✓ Good communication</li>
+            <li>✓ Time management</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>My Services</h2>
+
+        <p>
+          Digital support designed to help your business save time
+          and stay consistent.
+        </p>
+
+      </div>
+
+
+      <div class="cards">
+
+        <!-- VIDEO EDITING -->
+        <div class="card">
+
+          <div class="icon">🎬</div>
+
+          <h3>Video Editing</h3>
+
+          <p>
+            Engaging short-form videos designed for social media.
+          </p>
+
+          <ul>
+            <li>Instagram Reels</li>
+            <li>TikTok Videos</li>
+            <li>YouTube Shorts</li>
+            <li>Captions & Subtitles</li>
+            <li>Text & Transitions</li>
+          </ul>
+
+        </div>
+
+
+        <!-- SOCIAL MEDIA -->
+        <div class="card">
+
+          <div class="icon">📱</div>
+
+          <h3>Social Media Management</h3>
+
+          <p>
+            Helping businesses maintain a consistent and engaging
+            social media presence.
+          </p>
+
+          <ul>
+            <li>Content Planning</li>
+            <li>Content Calendars</li>
+            <li>Caption Writing</li>
+            <li>Hashtag Research</li>
+            <li>Content Creation</li>
+          </ul>
+
+        </div>
+
+
+        <!-- VA -->
+        <div class="card">
+
+          <div class="icon">💻</div>
+
+          <h3>Virtual Assistant</h3>
+
+          <p>
+            Reliable administrative and digital support for your
+            business.
+          </p>
+
+          <ul>
+            <li>Data Entry</li>
+            <li>Internet Research</li>
+            <li>Google Sheets</li>
+            <li>File Organization</li>
+            <li>Administrative Support</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>My Portfolio</h2>
+
+        <p>
+          Sample projects created to demonstrate my creative and
+          digital skills.
+        </p>
+
+      </div>
+
+
+      <div class="portfolio-grid">
+
+
+        <!-- PROJECT 1 -->
+        <div class="project">
+
+          <div class="project-image">
+            ☕
+          </div>
+
+          <div class="project-content">
+
+            <h3>Bloom Café — Promotional Reel</h3>
+
+            <p>
+              A short-form coffee promotional video concept
+              designed for Instagram Reels and TikTok.
+            </p>
+
+            <span class="tag">
+              VIDEO EDITING
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+        <div class="project">
+
+          <div class="project-image">
+            🍔
+          </div>
+
+          <div class="project-content">
+
+            <h3>Restaurant — Food Reel</h3>
+
+            <p>
+              A social media video concept showcasing food,
+              atmosphere, and promotional messaging.
+            </p>
+
+            <span class="tag">
+              SOCIAL MEDIA VIDEO
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+        <div class="project">
+
+          <div class="project-image">
+            🏠
+          </div>
+
+          <div class="project-content">
+
+            <h3>Real Estate — Property Reel</h3>
+
+            <p>
+              A property showcase concept featuring room highlights,
+              text overlays, and a clear call-to-action.
+            </p>
+
+            <span class="tag">
+              VIDEO EDITING
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+        <div class="project">
+
+          <div class="project-image">
+            🛍️
+          </div>
+
+          <div class="project-content">
+
+            <h3>Product Advertisement</h3>
+
+            <p>
+              A promotional content concept designed to introduce
+              a product and encourage customers to take action.
+            </p>
+
+            <span class="tag">
+              CONTENT CREATION
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 5 -->
+        <div class="project">
+
+          <div class="project-image">
+            ✨
+          </div>
+
+          <div class="project-content">
+
+            <h3>Motivational Short Video</h3>
+
+            <p>
+              A motivational short-form video concept using
+              storytelling, captions, music, and visual pacing.
+            </p>
+
+            <span class="tag">
+              SHORT-FORM VIDEO
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 6 -->
+        <div class="project">
+
+          <div class="project-image">
+            📅
+          </div>
+
+          <div class="project-content">
+
+            <h3>Social Media Content Calendar</h3>
+
+            <p>
+              A sample weekly content plan created to organize
+              social media posts and maintain consistency.
+            </p>
+
+            <span class="tag">
+              SOCIAL MEDIA MANAGEMENT
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Skills & Tools</h2>
+
+        <p>
+          Tools and skills I use or am currently developing.
+        </p>
+
+      </div>
+
+      <div class="skills">
+
+        <div class="skill">Canva</div>
+        <div class="skill">CapCut</div>
+        <div class="skill">Google Docs</div>
+        <div class="skill">Google Sheets</div>
+        <div class="skill">Google Drive</div>
+        <div class="skill">Meta Business Suite</div>
+        <div class="skill">Facebook</div>
+        <div class="skill">Instagram</div>
+        <div class="skill">TikTok</div>
+        <div class="skill">YouTube</div>
+        <div class="skill">Content Planning</div>
+        <div class="skill">Video Editing</div>
+        <div class="skill">Social Media Management</div>
+        <div class="skill">Virtual Assistance</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Let's Work Together</h2>
+
+        <p>
+          Looking for a reliable Virtual Assistant, Video Editor,
+          or Social Media Manager?
+        </p>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        <p>
+          I'd love to help your business create engaging content,
+          stay organized, and maintain a consistent online presence.
+        </p>
+
+        <div class="contact-info">
+
+          <!-- CHANGE THESE LATER -->
+          <a href="mailto:YOUR-EMAIL@example.com">
+            📧 Email Me
+          </a>
+
+          <a href="#">
+            💼 Upwork
+          </a>
+
+          <a href="#">
+            🔗 LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    © 2026 Cherry Sumagpao. All Rights Reserved.
+
+  </footer>
+
+
+</body>
+</html>
